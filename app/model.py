@@ -6,7 +6,7 @@ __version__ = "0.1.0"
 
 BASE_DIR = Path(__file__).resolve().parent
 
-with open(f"{BASE_DIR}/../Models/models/model-{__version__}.pkl", "rb") as f:
+with open(f"{BASE_DIR}/model-{__version__}.pkl", "rb") as f:
     model = pickle.load(f)
 
 def predict(team_red: list, team_blue: list):
@@ -14,4 +14,6 @@ def predict(team_red: list, team_blue: list):
     print(champions)
     pred = model.predict(champions.reshape(1, -1))
     chance = model.predict_proba(champions.reshape(1, -1))
-    return pred, chance
+    flat_chances = [item for sublist in chance for item in sublist]
+    return pred.item(), flat_chances
+
