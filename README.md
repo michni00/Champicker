@@ -18,4 +18,4 @@ There have been many classification models built to check which one will be the 
 The model's prediction can be accessed using the HTTP POST method. It has been built using FastAPI and can be run in Docker environment.
 
 ## Deployment
-Yet to be done in AWS.
+For the sake of practice the API has been deployed on AWS EC2 instance and shut down to prevent any billing.
